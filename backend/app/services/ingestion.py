@@ -4,7 +4,7 @@ import pymupdf
 import pytesseract
 from PIL import Image
 from io import BytesIO
-from qdrant_client.models import Distance, VectorParams, PointStruct
+from qdrant_client.models import Distance, VectorParams, PointStruct, PayloadSchemaType
 
 from app.config import (
     COLLECTION_NAME,
@@ -21,6 +21,11 @@ def ensure_collection():
         qdrant_client.create_collection(
             collection_name=COLLECTION_NAME,
             vectors_config=VectorParams(size=EMBEDDING_DIMENSIONS, distance=Distance.COSINE)
+        )
+        qdrant_client.create_payload_index(
+            collection_name=COLLECTION_NAME,
+            field_name="filename",
+            field_schema=PayloadSchemaType.KEYWORD
         )
 
 
