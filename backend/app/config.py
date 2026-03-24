@@ -5,8 +5,10 @@ load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+QDRANT_URL = os.getenv("QDRANT_URL")
 QDRANT_HOST = os.getenv("QDRANT_HOST", "localhost")
 QDRANT_PORT = int(os.getenv("QDRANT_PORT", 6333))
+QDRANT_API_KEY = os.getenv("QDRANT_API_KEY")
 
 COLLECTION_NAME = "doclens"
 EMBEDDING_MODEL = "gemini-embedding-001"
