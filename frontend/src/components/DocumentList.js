@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { FileText, RefreshCw } from "lucide-react";
 import axios from "axios";
 
-const API = "http://localhost:8000/api";
+const API = (process.env.REACT_APP_API_URL || "http://localhost:8000") + "/api";
 
 function DocumentList() {
   const [documents, setDocuments] = useState([]);
