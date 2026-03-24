@@ -20,7 +20,8 @@ function Upload() {
         formData.append("file", file);
 
         const response = await axios.post(`${API}/upload`, formData, {
-          headers: { "Content-Type": "multipart/form-data" }
+          headers: { "Content-Type": "multipart/form-data" },
+          timeout: 300000
         });
 
         setUploadedFiles(prev => [...prev, {
