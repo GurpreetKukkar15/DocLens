@@ -13,7 +13,7 @@ function QueryBox({ query, setQuery, setResults, setThemes, setLoading, loading 
     setThemes("");
 
     try {
-      const response = await axios.post(`${API}/query`, { query });
+      const response = await axios.post(`${API}/query`, { query }, { timeout: 300000 });
       setResults(response.data.doc_answers);
       setThemes(response.data.themes);
     } catch (err) {
