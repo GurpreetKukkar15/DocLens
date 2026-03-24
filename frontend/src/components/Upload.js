@@ -3,7 +3,7 @@ import { useDropzone } from "react-dropzone";
 import { Upload as UploadIcon, CheckCircle, AlertCircle } from "lucide-react";
 import axios from "axios";
 
-const API = "http://localhost:8000/api";
+const API = (process.env.REACT_APP_API_URL || "http://localhost:8000") + "/api";
 
 function Upload() {
   const [uploading, setUploading] = useState(false);
